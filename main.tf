@@ -118,10 +118,10 @@ resource "aws_eks_node_group" "devopsshack" {
     min_size     = 3
   }
 
-  instance_types = ["t2.medium"]
+  instance_types = ["t3.small"]
 
   remote_access {
-    ec2_ssh_key = var.ssh_key_name
+    ec2_ssh_key = "ci"
     source_security_group_ids = [aws_security_group.devopsshack_node_sg.id]
   }
 }
